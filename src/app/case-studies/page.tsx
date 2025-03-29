@@ -124,12 +124,12 @@ export default function CaseStudiesPage() {
   // Initialize filtered case studies on mount
   useEffect(() => {
     setFilteredCaseStudies(caseStudies);
-  }, []);
+  }, [caseStudies]);
 
   // Handle visibility for animations
   useEffect(() => {
     setIsVisible(true);
-
+  
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting) {
@@ -139,15 +139,14 @@ export default function CaseStudiesPage() {
       },
       { threshold: 0.1 }
     );
-
-    if (sectionRef.current) {
-      observer.observe(sectionRef.current);
+  
+    const currentRef = sectionRef.current;
+    if (currentRef) {
+      observer.observe(currentRef);
     }
-
+  
     return () => {
-      if (sectionRef.current) {
-        observer.disconnect();
-      }
+      observer.disconnect();
     };
   }, []);
 
@@ -176,7 +175,7 @@ export default function CaseStudiesPage() {
               Case Studies
             </h1>
             <p className="text-xl text-green-100 mb-8">
-              Explore our success stories and learn how we've helped leading organizations across 
+              Explore our success stories and learn how we&apos;ve helped leading organizations across 
               various industries overcome challenges and achieve their goals.
             </p>
             <div className="flex flex-wrap gap-4">
@@ -230,7 +229,7 @@ export default function CaseStudiesPage() {
               Featured Case Studies
             </h2>
             <p className="text-lg text-gray-600">
-              Discover how we've driven transformative results for these leading organizations.
+              Discover how we&aposve driven transformative results for these leading organizations.
             </p>
           </div>
           
@@ -404,7 +403,7 @@ export default function CaseStudiesPage() {
               <div className="md:w-1/2 p-8 md:p-12 text-white">
                 <h2 className="text-3xl font-bold mb-4">Ready to Transform Your Business?</h2>
                 <p className="text-green-100 mb-6">
-                  Let's discuss how Bulemo Consulting can help your organization overcome challenges, 
+                  Let&apos;s discuss how Bulemo Consulting can help your organization overcome challenges, 
                   optimize operations, and achieve sustainable growth through innovative technology solutions.
                 </p>
                 <div className="flex flex-wrap gap-4">

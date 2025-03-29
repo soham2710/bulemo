@@ -95,7 +95,7 @@ export default function ServicesPage() {
               Our Services
             </h1>
             <p className="text-xl text-green-100 mb-8">
-              Comprehensive technology and business consulting solutions tailored to your organization's unique needs. 
+              Comprehensive technology and business consulting solutions tailored to your organization&apos;s unique needs. 
               We help you navigate complex challenges and drive sustainable growth.
             </p>
             <div className="flex flex-wrap gap-4">

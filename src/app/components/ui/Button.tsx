@@ -72,7 +72,7 @@ const Button: React.FC<ButtonProps> = ({
       <Link 
         href={href}
         className={`${buttonClasses} ${disabled ? 'pointer-events-none' : ''} group`}
-        onClick={onClick as any}
+        onClick={onClick as React.MouseEventHandler<HTMLAnchorElement>}
         aria-disabled={disabled}
       >
         {iconPosition === 'left' && renderIcon()}

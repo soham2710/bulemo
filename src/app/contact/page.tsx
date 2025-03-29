@@ -1,5 +1,5 @@
 'use client';
-import { useEffect, useRef, useState } from 'react';
+import { useState } from 'react';
 import ContactForm from '@/app/components/sections/ContactForm';
 import Image from 'next/image';
 import Link from 'next/link';
@@ -100,7 +100,7 @@ export default function ContactPage() {
               Contact Bulemo Consulting
             </h1>
             <p className="text-xl text-green-100 mb-8">
-              Reach out to us for a consultation, and let's discuss how we can help transform your business 
+              Reach out to us for a consultation, and let&apos;s discuss how we can help transform your business 
               through innovative technology solutions and expert guidance.
             </p>
             <div className="flex flex-wrap gap-4">
@@ -159,7 +159,7 @@ export default function ContactPage() {
               Our Offices
             </h2>
             <p className="text-lg text-gray-600">
-              Visit us at one of our offices across South Africa. We'd love to meet you in person.
+              Visit us at one of our offices across South Africa. We&apos;d love to meet you in person.
             </p>
           </div>
 
@@ -270,7 +270,7 @@ export default function ContactPage() {
 
           <div className="max-w-3xl mx-auto text-center mt-12 animate-fade-in animate-delay-4">
             <p className="text-gray-600 mb-6">
-              Don't see your question here? Reach out to us directly and we'll be happy to help.
+              Don&apos;t see your question here? Reach out to us directly and we&apos;ll be happy to help.
             </p>
             <a 
               href="#contact-form" 
@@ -301,7 +301,7 @@ export default function ContactPage() {
                 Join Our Growing Team
               </h2>
               <p className="text-gray-300">
-                Interested in working with us? We're always looking for talented individuals to join our team.
+                Interested in working with us? We&apos;re always looking for talented individuals to join our team.
               </p>
             </div>
             <Link 

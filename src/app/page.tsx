@@ -1,6 +1,5 @@
 'use client';
 
-import { useEffect, useState } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import Hero from '@/app/components/sections/Hero';
@@ -10,11 +9,6 @@ import ServicesList from '@/app/components/layout/ServicesList';
 import ContactForm from '@/app/components/sections/ContactForm';
 
 export default function HomePage() {
-  const [isVisible, setIsVisible] = useState(false);
-
-  useEffect(() => {
-    setIsVisible(true);
-  }, []);
 
   // Stats data
   const stats = [
@@ -145,7 +139,7 @@ export default function HomePage() {
                 </div>
                 <div className="absolute -bottom-6 -right-6 bg-green-600 rounded-lg shadow-lg p-6 text-white max-w-xs animate-float">
                   <p className="text-lg font-semibold mb-2">
-                    "Bulemo transformed our operations with their innovative solutions."
+                  &quot;Bulemo transformed our operations with their innovative solutions.&quot;
                   </p>
                   <p className="text-sm text-green-100">
                     — CIO, Leading Financial Institution
@@ -226,7 +220,7 @@ export default function HomePage() {
               Trusted by Leading Organizations
             </h2>
             <p className="text-lg text-gray-600">
-              We're proud to work with some of South Africa's most respected companies across various industries.
+              We&apos;re proud to work with some of South Africa&apos;s most respected companies across various industries.
             </p>
           </div>
           
@@ -258,14 +252,14 @@ export default function HomePage() {
               Ready to Transform Your Business?
             </h2>
             <p className="text-xl text-green-100 mb-8 max-w-3xl mx-auto">
-              Partner with Bulemo Consulting to navigate the evolving technology landscape and unlock your organization's full potential.
+              Partner with Bulemo Consulting to navigate the evolving technology landscape and unlock your organization&apos;s full potential.
             </p>
             <div className="flex flex-wrap justify-center gap-4">
               <Link 
                 href="/contact" 
                 className="bg-white hover:bg-gray-100 text-green-800 font-medium py-3 px-8 rounded-md transition-colors group flex items-center"
               >
-                Let's Talk
+                Let&apos;s Talk
                 <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 ml-2 transform group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
                 </svg>
