@@ -1,0 +1,62 @@
+bulemo-consulting/
+│
+├── public/                     # Static assets
+│   ├── images/                 # Image assets
+│   │   ├── logo.svg
+│   │   ├── hero-image.jpg
+│   │   ├── service-icons/
+│   │   └── team/
+│   ├── favicon.ico
+│   └── robots.txt
+│
+├── src/
+│   ├── app/                    # App router structure
+│   │   ├── page.js             # Homepage
+│   │   ├── layout.js           # Root layout
+│   │   ├── about/
+│   │   │   └── page.js
+│   │   ├── services/
+│   │   │   ├── page.js         # Services overview
+│   │   │   └── [service]/      # Dynamic route for individual services
+│   │   │       └── page.js
+│   │   ├── case-studies/
+│   │   │   ├── page.js
+│   │   │   └── [id]/
+│   │   │       └── page.js
+│   │   ├── blog/
+│   │   │   ├── page.js
+│   │   │   └── [slug]/
+│   │   │       └── page.js
+│   │   └── contact/
+│   │       └── page.js
+│   │
+│   ├── components/             # Reusable components
+│   │   ├── ui/                 # UI components
+│   │   │   ├── Button.jsx
+│   │   │   ├── Card.jsx
+│   │   │   ├── Navbar.jsx
+│   │   │   └── Footer.jsx
+│   │   ├── layout/            # Layout components
+│   │   │   ├── Header.jsx
+│   │   │   └── ServicesList.jsx
+│   │   └── sections/          # Page sections
+│   │       ├── Hero.jsx
+│   │       ├── ServicesOverview.jsx
+│   │       ├── TestimonialsSection.jsx
+│   │       └── ContactForm.jsx
+│   │
+│   ├── lib/                    # Utility functions
+│   │   ├── data.js             # Static data
+│   │   └── helpers.js
+│   │
+│   ├── styles/                 # Global styles
+│   │   ├── globals.css         # Global CSS
+│   │   └── variables.css       # CSS variables
+│   │
+│   └── hooks/                  # Custom React hooks
+│       └── useScrollPosition.js
+│
+├── tailwind.config.js          # Tailwind CSS configuration
+├── next.config.js              # Next.js configuration
+├── package.json
+└── README.md
