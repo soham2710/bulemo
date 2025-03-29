@@ -4,12 +4,6 @@ import { useEffect } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import ContactForm from '@/app/components/sections/ContactForm';
-import { Metadata } from 'next';
-
-export const metadata: Metadata = {
-  title: 'About Us | Bulemo Consulting',
-  description: 'Learn about Bulemo Consulting, our mission, vision, values and our experienced team of consultants.',
-};
 
 interface Stat {
   value: string;
@@ -321,7 +315,8 @@ export default function AboutPage() {
             {teamMembers.map((member, index) => (
               <div 
                 key={index} 
-                className={`bg-white rounded-xl shadow-md overflow-hidden hover:shadow-lg transition-all duration-300 hover:-translate-y-2 group animate-fade-in animation-delay-${index}`}
+                className="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-lg transition-all duration-300 hover:-translate-y-2 group animate-fade-in"
+                style={{ animationDelay: `${index * 150}ms` }}
               >
                 <div className="relative h-64 overflow-hidden">
                   <Image 
