@@ -1,27 +1,32 @@
 // src/lib/mongodb.js
 import { MongoClient } from 'mongodb';
 
-if (!process.env.MONGODB_URI) {
-  throw new Error('Please add your MongoDB URI to .env.local');
+// Check for MongoDB URI in environment variables
+const MONGODB_URI = process.env.MONGODB_URI;
+
+if (!MONGODB_URI) {
+  throw new Error(
+    'Please define the MONGODB_URI environment variable inside .env.local'
+  );
 }
 
-const uri = process.env.MONGODB_URI;
+// Connection options
 const options = {};
 
 let client;
 let clientPromise;
 
+// Use global variable in development to preserve connection across hot reloads
 if (process.env.NODE_ENV === 'development') {
-  // In development mode, use a global variable so that the value
-  // is preserved across module reloads caused by HMR (Hot Module Replacement).
+  // Check if the global variable doesn't exist
   if (!global._mongoClientPromise) {
-    client = new MongoClient(uri, options);
+    client = new MongoClient(MONGODB_URI, options);
     global._mongoClientPromise = client.connect();
   }
   clientPromise = global._mongoClientPromise;
 } else {
-  // In production mode, it's best to not use a global variable.
-  client = new MongoClient(uri, options);
+  // In production, create a new client for each connection
+  client = new MongoClient(MONGODB_URI, options);
   clientPromise = client.connect();
 }
 

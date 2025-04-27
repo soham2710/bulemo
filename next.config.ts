@@ -1,7 +1,12 @@
-import type { NextConfig } from "next";
+// next.config.ts
+import { NextConfig } from 'next';
 
 const nextConfig: NextConfig = {
-  /* config options here */
+  reactStrictMode: true,
+  swcMinify: true,
+  env: {
+    MONGODB_URI: process.env.MONGODB_URI,
+  },
 };
 
 export default nextConfig;
