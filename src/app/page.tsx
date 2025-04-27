@@ -182,23 +182,6 @@ export default function HomePage() {
         </div>
       </section>
       
-      {/* Featured Services Section */}
-      <section className="py-16 md:py-24">
-        <div className="container mx-auto px-4">
-          <div className="max-w-3xl mx-auto text-center mb-16 animate-fade-in">
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-800 mb-6">
-              Our Services
-            </h2>
-            <p className="text-lg text-gray-600">
-              We offer a comprehensive range of services to meet your business technology needs.
-            </p>
-          </div>
-          
-          <ServicesList showTitle={false} limit={6} containerStyles="animate-fade-in" />
-        </div>
-      </section>
-      
-      
       {/* CTA Section */}
       <section className="py-16 md:py-20 bg-gradient-to-r from-green-700 to-green-900 text-white">
         <div className="container mx-auto px-4">

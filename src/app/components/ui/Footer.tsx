@@ -138,14 +138,9 @@ const Footer: React.FC<FooterProps> = ({
           {/* Company Info Column */}
           <div className="lg:col-span-1">
             <Link href="/" className="inline-block mb-6">
-              <div className="relative" style={{ width: logo.width || 160, height: logo.height || 48 }}>
-                <Image 
-                  src={logo.src} 
-                  alt={logo.alt}
-                  fill
-                  style={{ objectFit: 'contain' }}
-                />
-              </div>
+              <h1 className="text-3xl md:text-4xl font-bold text-white">
+                BULEMO<span className="text-green-400">.</span>
+              </h1>
             </Link>
             
             {contactInfo && (

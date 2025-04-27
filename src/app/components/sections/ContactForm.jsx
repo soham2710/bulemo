@@ -371,7 +371,7 @@ const ContactForm = ({ showMap = true }) => {
               <div className="rounded-xl overflow-hidden h-64 md:h-72 shadow-md">
                 <div className="relative w-full h-full">
                   <Image 
-                    src="/api/placeholder/800/600" 
+                    src="/sandton.jpg" 
                     alt="Office Location" 
                     width={800}
                     height={600}

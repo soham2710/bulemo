@@ -41,7 +41,7 @@ const ServicesOverview = () => {
         "Digital Adoption Platforms"
       ],
       color: "#4CAF50", // Primary green
-      image: "/api/placeholder/800/600"
+      image: "/testimonial-1.jpg"
     },
     {
       title: "EdTech Solutions & LMS",
@@ -54,7 +54,7 @@ const ServicesOverview = () => {
         "Training Platform Implementation"
       ],
       color: "#1E5631", // Dark green
-      image: "/api/placeholder/800/600"
+      image: "/testimonial-2.jpg"
     },
     {
       title: "Cybersecurity & Data Security",
@@ -67,7 +67,7 @@ const ServicesOverview = () => {
         "Incident Response Planning"
       ],
       color: "#1E88E5", // South African blue
-      image: "/api/placeholder/800/600"
+      image: "/cybersecurity.jpg"
     },
     {
       title: "Training & Implementation",
@@ -80,7 +80,7 @@ const ServicesOverview = () => {
         "User Support Services"
       ],
       color: "#FBC02D", // South African yellow
-      image: "/api/placeholder/800/600"
+      image: "/training1.jpg"
     },
     {
       title: "Project Management",
@@ -93,7 +93,7 @@ const ServicesOverview = () => {
         "Staff Augmentation"
       ],
       color: "#4CAF50", // Primary green
-      image: "/api/placeholder/800/600"
+      image: "/project.jpg"
     },
     {
       title: "IT Procurement & Advisory",
@@ -106,7 +106,7 @@ const ServicesOverview = () => {
         "Cloud Services Advisory"
       ],
       color: "#1E5631", // Dark green
-      image: "/api/placeholder/800/600"
+      image: "/advisory.jpg"
     },
     {
       title: "AI Services & Automation",
@@ -119,7 +119,7 @@ const ServicesOverview = () => {
         "Predictive Analytics"
       ],
       color: "#1E88E5", // South African blue
-      image: "/api/placeholder/800/600"
+      image: "/ai-automation.jpg"
     },
     {
       title: "Business Process Optimization",
@@ -132,7 +132,7 @@ const ServicesOverview = () => {
         "Operational Efficiency Analysis"
       ],
       color: "#E53935", // South African red
-      image: "/api/placeholder/800/600"
+      image: "/bpo.jpg"
     },
     {
       title: "Data Analytics & Business Intelligence",
@@ -145,7 +145,7 @@ const ServicesOverview = () => {
         "Performance Dashboards"
       ],
       color: "#4CAF50", // Primary green
-      image: "/api/placeholder/800/600"
+      image: "/tech.jpg"
     },
     {
       title: "Digital Transformation",
@@ -158,7 +158,7 @@ const ServicesOverview = () => {
         "Technology Roadmapping"
       ],
       color: "#1E5631", // Dark green
-      image: "/api/placeholder/800/600"
+      image: "/digital.jpg"
     },
     {
       title: "Compliance & Risk Management",
@@ -168,10 +168,10 @@ const ServicesOverview = () => {
         "Regulatory Compliance Audits",
         "Risk Assessments",
         "Disaster Recovery Planning",
-        "POPIA & GDPR Compliance"
+        "SOC2, ISO & GDPR Compliance"
       ],
       color: "#FBC02D", // South African yellow
-      image: "/api/placeholder/800/600"
+      image: "/risk.jpg"
     },
     {
       title: "Marketing & Branding",
@@ -184,7 +184,7 @@ const ServicesOverview = () => {
         "Content Marketing"
       ],
       color: "#E53935", // South African red
-      image: "/api/placeholder/800/600"
+      image: "/marketing.jpg"
     },
   ];
 

@@ -1,11 +1,11 @@
 'use client';
 
-import { Inter } from 'next/font/google';
 import { useSession } from 'next-auth/react';
 import { useRouter, usePathname } from 'next/navigation';
-import { useEffect } from 'react';
-import AdminHeader from './AdminHeader';
-import Sidebar from './Sidebar';
+import { useState, useEffect } from 'react';
+import AdminHeader from './components/AdminHeader';
+import Sidebar from './components/Sidebar';
+import { Inter } from 'next/font/google';
 
 const inter = Inter({ subsets: ['latin'] });
 
@@ -13,10 +13,17 @@ export default function AdminLayout({ children }) {
   const { data: session, status } = useSession();
   const router = useRouter();
   const pathname = usePathname();
+  const [isClient, setIsClient] = useState(false);
   
   // Check if current page is login page
   const isLoginPage = pathname === '/admin/login';
   
+  // Set isClient to true once component mounts
+  useEffect(() => {
+    setIsClient(true);
+  }, []);
+
+  // Handle authentication
   useEffect(() => {
     // Skip authentication check for login page
     if (isLoginPage) return;
@@ -31,7 +38,7 @@ export default function AdminLayout({ children }) {
   }, [status, session, router, isLoginPage]);
   
   // Show loading state while checking authentication
-  if (!isLoginPage && status === 'loading') {
+  if (!isClient || (!isLoginPage && status === 'loading')) {
     return (
       <div className="flex items-center justify-center min-h-screen bg-gray-100">
         <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-green-600"></div>
@@ -42,7 +49,7 @@ export default function AdminLayout({ children }) {
   // For login page, don't show admin layout
   if (isLoginPage) {
     return (
-      <div className={`${inter.className}`}>
+      <div className={inter.className}>
         {children}
       </div>
     );
@@ -57,7 +64,7 @@ export default function AdminLayout({ children }) {
     );
   }
   
-  // For authenticated admin pages, show full admin layout
+  // For authenticated admin pages, show the admin layout
   return (
     <div className={`${inter.className} flex flex-col min-h-screen`}>
       <AdminHeader username={session?.user?.username || 'Admin'} />

@@ -36,25 +36,25 @@ export default function AboutPage() {
     {
       name: "Thabo Nkosi",
       role: "Founder & CEO",
-      image: "/images/team/founder.jpg",
+      image: "/founder.jpg",
       bio: "Thabo has over 20 years of experience in IT consulting and business transformation. Before founding Bulemo Consulting, he held leadership positions at top global consulting firms.",
     },
     {
       name: "Lerato Molefe",
       role: "Chief Operations Officer",
-      image: "/images/team/coo.jpg",
+      image: "/coo.jpg",
       bio: "With extensive experience in operations management, Lerato ensures that our service delivery consistently exceeds client expectations.",
     },
     {
       name: "David van der Merwe",
       role: "Head of Technology",
-      image: "/images/team/tech-lead.jpg",
+      image: "/tech-lead.jpg",
       bio: "David brings 15+ years of experience in IT infrastructure, cloud solutions, and digital transformation to lead our technical initiatives.",
     },
     {
       name: "Priya Naidoo",
       role: "Learning Solutions Director",
-      image: "/images/team/learning-director.jpg",
+      image: "/learning-director.jpg",
       bio: "Priya specializes in EdTech and learning management solutions, helping organizations build effective training programs.",
     },
   ];
@@ -145,7 +145,7 @@ export default function AboutPage() {
               <div className="relative mx-auto max-w-md lg:mr-0">
                 <div className="relative rounded-lg overflow-hidden shadow-xl">
                   <Image 
-                    src="/images/about/team-meeting.jpg" 
+                    src="/team.jpg" 
                     alt="Bulemo Consulting Team" 
                     width={600}
                     height={400}
@@ -185,7 +185,7 @@ export default function AboutPage() {
             <div className="animate-fade-in-right">
               <div className="relative rounded-lg overflow-hidden shadow-lg">
                 <Image 
-                  src="/images/about/company-history.jpg" 
+                  src="/history.jpg" 
                   alt="Bulemo Consulting History" 
                   width={600}
                   height={450}

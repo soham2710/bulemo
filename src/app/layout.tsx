@@ -1,9 +1,8 @@
 import { Inter } from 'next/font/google';
 import './globals.css';
 import { Metadata } from 'next';
-import Header from '@/app/components/layout/Header';
-import Footer from '@/app/components/ui/Footer';
-import NextAuthProvider from './providers'; // Import the provider we just created
+import NextAuthProvider from './providers';
+import HeaderLayout from '@/app/components/layout/HeaderLayout';
 
 const inter = Inter({ subsets: ['latin'] });
 
@@ -54,7 +53,7 @@ export default function RootLayout({ children }: RootLayoutProps) {
   ];
 
   // Footer social links
-  const socialLinks: { platform: "linkedin" | "twitter" | "facebook" | "instagram" | "youtube"; href: string; ariaLabel: string; }[] = [
+  const socialLinks = [
     { platform: "linkedin", href: "https://www.linkedin.com/company/bulemo-consulting", ariaLabel: "LinkedIn" },
     { platform: "twitter", href: "https://twitter.com/bulemoconsulting", ariaLabel: "Twitter" },
     { platform: "facebook", href: "https://www.facebook.com/bulemoconsulting", ariaLabel: "Facebook" }
@@ -71,16 +70,13 @@ export default function RootLayout({ children }: RootLayoutProps) {
     <html lang="en" className="scroll-smooth">
       <body className={`${inter.className} min-h-screen flex flex-col`}>
         <NextAuthProvider>
-          <Header />
-          <div className="flex-grow">
-            {children}
-          </div>
-          <Footer 
-            columns={footerColumns}
+          <HeaderLayout 
+            footerColumns={footerColumns}
             socialLinks={socialLinks}
             contactInfo={contactInfo}
-            newsletter={true}
-          />
+          >
+            {children}
+          </HeaderLayout>
         </NextAuthProvider>
       </body>
     </html>

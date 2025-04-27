@@ -11,11 +11,11 @@ export default function LoginPageInner() {
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
   const [isLoading, setIsLoading] = useState(false);
-  
+
   const router = useRouter();
   const searchParams = useSearchParams();
   const { status } = useSession();
-  
+
   useEffect(() => {
     const errorParam = searchParams.get('error');
     if (errorParam) {
@@ -26,31 +26,31 @@ export default function LoginPageInner() {
       }
     }
   }, [searchParams]);
-  
+
   useEffect(() => {
     if (status === 'authenticated') {
       router.push('/admin/dashboard');
     }
   }, [status, router]);
-  
+
   const handleSubmit = async (e) => {
     e.preventDefault();
-    
+
     if (!username || !password) {
       setError('Please enter both username and password');
       return;
     }
-    
+
     setIsLoading(true);
     setError('');
-    
+
     try {
       const result = await signIn('credentials', {
         username,
         password,
-        redirect: false
+        redirect: false,
       });
-      
+
       if (result.error) {
         setError('Invalid username or password');
         setIsLoading(false);
@@ -63,7 +63,7 @@ export default function LoginPageInner() {
       setIsLoading(false);
     }
   };
-  
+
   if (status === 'loading') {
     return (
       <div className="min-h-screen flex items-center justify-center bg-gray-100">
@@ -71,39 +71,45 @@ export default function LoginPageInner() {
       </div>
     );
   }
-  
+
   if (status === 'authenticated') {
     return null;
   }
-  
+
   return (
     <div className="min-h-screen flex items-center justify-center bg-gray-100 py-12 px-4 sm:px-6 lg:px-8">
       <div className="max-w-md w-full bg-white rounded-lg shadow-lg p-8">
+        
+        {/* Logo Section */}
+        <div className="flex flex-col items-center mb-16">
+          <Link href="/">
+            <div className="relative h-16 w-48">
+              <Image
+                src="/logo.png"
+                alt="Bulemo Consulting"
+                width={192}
+                height={57}
+                style={{ objectFit: 'contain' }}
+                priority
+              />
+            </div>
+          </Link>
+        </div>
+
+        {/* Heading Section */}
         <div className="text-center mb-8">
-          <div className="flex justify-center mb-4">
-            <Link href="/">
-              <div className="relative h-16 w-48">
-                <Image
-                  src="/api/placeholder/192/57"
-                  alt="Bulemo Consulting"
-                  width={192}
-                  height={57}
-                  style={{ objectFit: 'contain' }}
-                  priority
-                />
-              </div>
-            </Link>
-          </div>
           <h2 className="text-2xl font-bold text-gray-800">Admin Login</h2>
           <p className="mt-2 text-gray-600">Sign in to access the admin dashboard</p>
         </div>
-        
+
+        {/* Error Message */}
         {error && (
           <div className="mb-4 bg-red-50 border-l-4 border-red-500 p-4 text-red-700">
             <p>{error}</p>
           </div>
         )}
-        
+
+        {/* Form */}
         <form className="space-y-6" onSubmit={handleSubmit}>
           <div>
             <label htmlFor="username" className="block text-sm font-medium text-gray-700 mb-1">
@@ -120,7 +126,7 @@ export default function LoginPageInner() {
               placeholder="Username"
             />
           </div>
-          
+
           <div>
             <label htmlFor="password" className="block text-sm font-medium text-gray-700 mb-1">
               Password
@@ -136,7 +142,7 @@ export default function LoginPageInner() {
               placeholder="Password"
             />
           </div>
-          
+
           <div>
             <button
               type="submit"
@@ -158,7 +164,7 @@ export default function LoginPageInner() {
               )}
             </button>
           </div>
-          
+
           <div className="text-center">
             <Link href="/" className="text-sm text-green-600 hover:text-green-500">
               Return to Website
