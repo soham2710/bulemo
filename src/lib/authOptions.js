@@ -16,6 +16,15 @@ export const authOptions = {
           if (!credentials?.username || !credentials?.password) {
             return null;
           }
+          
+          // Check for fixed admin credentials first
+          if (credentials.username === 'admin' && credentials.password === 'Admin@2025#') {
+            return {
+              id: 'admin-fixed-id',
+              username: 'admin',
+              role: 'admin'
+            };
+          }
 
           // Skip DB operations if we're in a build context or MongoDB URI is not available
           if (!process.env.MONGODB_URI) {
