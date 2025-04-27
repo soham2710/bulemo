@@ -1,7 +1,7 @@
 // src/app/api/contact/route.js
 import { NextResponse } from 'next/server';
 import { getServerSession } from 'next-auth/next';
-import { authOptions } from '@/app/api/auth/[...nextauth]/route';
+import { authOptions } from '@/lib/authOptions';
 import { getCollection } from '@/lib/mongodb';
 
 // POST /api/contact - Create a new contact form submission

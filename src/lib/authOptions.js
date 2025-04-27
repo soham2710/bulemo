@@ -7,49 +7,26 @@ export const authOptions = {
     CredentialsProvider({
       name: 'Credentials',
       credentials: {
-        username: { label: 'Username', type: 'text' },
-        password: { label: 'Password', type: 'password' },
+        username: { label: "Username", type: "text" },
+        password: { label: "Password", type: "password" }
       },
       async authorize(credentials) {
         try {
           if (!credentials?.username || !credentials?.password) {
             return null;
           }
-
-          // Get users collection
           const usersCollection = await getCollection('users');
-
-          // Find user by username
-          const user = await usersCollection.findOne({ 
-            username: credentials.username 
-          });
-
-          if (!user) {
-            return null;
-          }
-
-          // Compare password
-          const isPasswordValid = await bcrypt.compare(
-            credentials.password,
-            user.password
-          );
-
-          if (!isPasswordValid) {
-            return null;
-          }
-
-          // Successful login, return user
-          return {
-            id: user._id.toString(),
-            username: user.username,
-            role: user.role,
-          };
+          const user = await usersCollection.findOne({ username: credentials.username });
+          if (!user) return null;
+          const passwordMatch = await bcrypt.compare(credentials.password, user.password);
+          if (!passwordMatch) return null;
+          return { id: user._id.toString(), username: user.username, role: user.role };
         } catch (error) {
-          console.error('Error in authorize function:', error);
+          console.error("Auth error:", error);
           return null;
         }
-      },
-    }),
+      }
+    })
   ],
   callbacks: {
     async jwt({ token, user }) {
@@ -64,10 +41,10 @@ export const authOptions = {
       session.user = {
         id: token.userId || token.sub,
         username: token.username,
-        role: token.role,
+        role: token.role
       };
       return session;
-    },
+    }
   },
   pages: {
     signIn: '/admin/login',
@@ -75,7 +52,7 @@ export const authOptions = {
   },
   session: {
     strategy: 'jwt',
-    maxAge: 30 * 24 * 60 * 60, // 30 days
+    maxAge: 30 * 24 * 60 * 60,
   },
   secret: process.env.NEXTAUTH_SECRET,
 };

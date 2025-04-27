@@ -1,7 +1,7 @@
 // src/app/api/blogs/[id]/route.js
 import { NextResponse } from 'next/server';
 import { getServerSession } from 'next-auth/next';
-import { authOptions } from '../../auth/[...nextauth]/route';
+import { authOptions } from '@/lib/authOptions';
 import { getCollection } from '@/lib/mongodb';
 import { ObjectId } from 'mongodb';
 import { slugify } from '@/lib/utils';

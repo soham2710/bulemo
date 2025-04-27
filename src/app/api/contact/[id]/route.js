@@ -1,7 +1,7 @@
 // src/app/api/contact/[id]/route.js
 import { NextResponse } from 'next/server';
 import { getServerSession } from 'next-auth/next';
-import { authOptions } from '@/app/api/auth/[...nextauth]/route';
+import { authOptions } from '@/lib/authOptions';
 import { getCollection } from '@/lib/mongodb';
 import { ObjectId } from 'mongodb';
 
