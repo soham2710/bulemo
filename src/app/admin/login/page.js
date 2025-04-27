@@ -15,7 +15,7 @@ export default function LoginPage() {
   
   const router = useRouter();
   const searchParams = useSearchParams();
-  const { data: session, status } = useSession();
+  const { status } = useSession(); // Removed the unused 'session' variable
   
   // Get error from URL if it exists
   useEffect(() => {

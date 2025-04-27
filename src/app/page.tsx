@@ -57,16 +57,6 @@ export default function HomePage() {
     }
   ];
 
-  // Clients data
-  const clients = [
-    { name: "Standard Bank", logo: "/images/clients/standard-bank-logo.png" },
-    { name: "Discovery", logo: "/images/clients/discovery-logo.png" },
-    { name: "Woolworths", logo: "/images/clients/woolworths-logo.png" },
-    { name: "MTN", logo: "/images/clients/mtn-logo.png" },
-    { name: "Sasol", logo: "/images/clients/sasol-logo.png" },
-    { name: "MultiChoice", logo: "/images/clients/multichoice-logo.png" }
-  ];
-
   return (
     <main className="overflow-hidden">
       {/* Hero Section */}

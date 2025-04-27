@@ -6,7 +6,7 @@ import { getCollection } from '@/lib/mongodb';
 import { generateCSV } from '@/lib/utils';
 
 // GET /api/contact/download - Download all contact form submissions as CSV (admin only)
-export async function GET(request) {
+export async function GET(_request) {
   try {
     // Check if user is authenticated and has admin role
     const session = await getServerSession(authOptions);
