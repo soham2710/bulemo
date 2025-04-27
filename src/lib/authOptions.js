@@ -1,12 +1,7 @@
+// src/lib/authOptions.js
 import CredentialsProvider from 'next-auth/providers/credentials';
 import bcrypt from 'bcryptjs';
 import { getCollection } from '@/lib/mongodb';
-
-// Handle missing MongoDB URI during build time
-const MONGODB_URI = process.env.MONGODB_URI;
-if (!MONGODB_URI && process.env.NODE_ENV === 'development') {
-  console.warn("MONGODB_URI not defined in environment variables");
-}
 
 export const authOptions = {
   providers: [
@@ -22,9 +17,9 @@ export const authOptions = {
             return null;
           }
 
-          // Skip DB operations if MongoDB URI is not available (for build time)
+          // Skip DB operations if we're in a build context or MongoDB URI is not available
           if (!process.env.MONGODB_URI) {
-            console.warn("MongoDB URI not available, skipping authentication");
+            console.warn("MongoDB URI not available or in build context, skipping authentication");
             return null;
           }
           
