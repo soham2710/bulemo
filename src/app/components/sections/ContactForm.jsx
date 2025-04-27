@@ -1,3 +1,4 @@
+// src/app/components/sections/ContactForm.jsx
 "use client";
 
 import { useState, useRef } from 'react';
@@ -44,18 +45,37 @@ const ContactForm = ({ showMap = true }) => {
     setFormData(prev => ({ ...prev, [name]: value }));
   };
   
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     setIsSubmitting(true);
+    setFormStatus({
+      submitted: false,
+      error: false,
+      message: ''
+    });
     
-    // Simulate API call
-    setTimeout(() => {
+    try {
+      // Submit to the API endpoint
+      const response = await fetch('/api/contact', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData),
+      });
+      
+      const data = await response.json();
+      
+      if (!response.ok) {
+        throw new Error(data.message || 'Failed to submit the form');
+      }
+      
+      // On success
       setFormStatus({
         submitted: true,
         error: false,
         message: 'Thank you! Your message has been received. We\'ll get back to you within 24 hours.'
       });
-      setIsSubmitting(false);
       
       // Reset form
       setFormData({
@@ -66,7 +86,18 @@ const ContactForm = ({ showMap = true }) => {
         service: '',
         message: ''
       });
-    }, 1500);
+    } catch (error) {
+      console.error('Error submitting form:', error);
+      
+      // On error
+      setFormStatus({
+        submitted: false,
+        error: true,
+        message: 'There was an error submitting your message. Please try again.'
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
   };
   
   const contactInfo = [
@@ -111,7 +142,7 @@ const ContactForm = ({ showMap = true }) => {
             Get In Touch
           </h2>
           <p className="text-lg text-gray-600 max-w-3xl mx-auto">
-            Reach out to us for a consultation, and let's discuss how we can help transform your business.
+            Reach out to us for a consultation, and let&apos;s discuss how we can help transform your business.
           </p>
         </div>
         
@@ -144,6 +175,12 @@ const ContactForm = ({ showMap = true }) => {
                     Fill out the form below and our team will get back to you shortly.
                   </p>
                 </div>
+                
+                {formStatus.error && (
+                  <div className="mb-6 bg-red-50 border-l-4 border-red-500 p-4 text-red-700">
+                    <p>{formStatus.message}</p>
+                  </div>
+                )}
                 
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
                   <div>
@@ -334,9 +371,10 @@ const ContactForm = ({ showMap = true }) => {
               <div className="rounded-xl overflow-hidden h-64 md:h-72 shadow-md">
                 <div className="relative w-full h-full">
                   <Image 
-                    src="/images/map-placeholder.jpg" 
+                    src="/api/placeholder/800/600" 
                     alt="Office Location" 
-                    fill
+                    width={800}
+                    height={600}
                     style={{ objectFit: 'cover' }}
                   />
                   <div className="absolute inset-0 flex items-center justify-center">

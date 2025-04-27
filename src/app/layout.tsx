@@ -3,6 +3,7 @@ import './globals.css';
 import { Metadata } from 'next';
 import Header from '@/app/components/layout/Header';
 import Footer from '@/app/components/ui/Footer';
+import NextAuthProvider from './providers'; // Import the provider we just created
 
 const inter = Inter({ subsets: ['latin'] });
 
@@ -61,24 +62,26 @@ export default function RootLayout({ children }: RootLayoutProps) {
 
   // Footer contact info
   const contactInfo = {
-    address: "100 West Street, Sandton, Johannesburg, South Africa",
-    phone: "+27 (0) 11 456 7890",
-    email: "info@bulemoconsulting.co.za"
+    address: "1254 hurdles Avenue Weltevredenpark, roodepoort, johannesburg, gauteng, South Africa, 1709",
+    phone: "+27 (0) 71 601 5038",
+    email: "consulting@bulemo.co.za"
   };
 
   return (
     <html lang="en" className="scroll-smooth">
       <body className={`${inter.className} min-h-screen flex flex-col`}>
-        <Header />
-        <div className="flex-grow">
-          {children}
-        </div>
-        <Footer 
-          columns={footerColumns}
-          socialLinks={socialLinks}
-          contactInfo={contactInfo}
-          newsletter={true}
-        />
+        <NextAuthProvider>
+          <Header />
+          <div className="flex-grow">
+            {children}
+          </div>
+          <Footer 
+            columns={footerColumns}
+            socialLinks={socialLinks}
+            contactInfo={contactInfo}
+            newsletter={true}
+          />
+        </NextAuthProvider>
       </body>
     </html>
   );

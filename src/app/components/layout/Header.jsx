@@ -124,12 +124,6 @@ const Header = () => {
             </div>
             
             <Link 
-              href="/case-studies" 
-              className="text-white hover:text-green-400 font-medium transition-colors"
-            >
-              Case Studies
-            </Link>
-            <Link 
               href="/blog" 
               className="text-white hover:text-green-400 font-medium transition-colors"
             >

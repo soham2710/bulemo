@@ -43,7 +43,7 @@ interface FooterProps {
 
 const Footer: React.FC<FooterProps> = ({
   logo = {
-    src: '/images/logo.svg',
+    src: '/logo.png',
     alt: 'Bulemo Consulting',
     width: 160,
     height: 48

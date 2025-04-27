@@ -209,40 +209,6 @@ export default function HomePage() {
         </div>
       </section>
       
-      {/* Testimonials Section */}
-      <TestimonialsSection />
-      
-      {/* Clients Section */}
-      <section className="py-16 md:py-20 bg-gray-50">
-        <div className="container mx-auto px-4">
-          <div className="max-w-3xl mx-auto text-center mb-12 animate-fade-in">
-            <h2 className="text-3xl font-bold text-gray-800 mb-4">
-              Trusted by Leading Organizations
-            </h2>
-            <p className="text-lg text-gray-600">
-              We&apos;re proud to work with some of South Africa&apos;s most respected companies across various industries.
-            </p>
-          </div>
-          
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-8 items-center justify-items-center animate-fade-in animate-delay-1">
-            {clients.map((client, index) => (
-              <div 
-                key={index} 
-                className="bg-white p-6 rounded-lg shadow-sm hover:shadow-md transition-shadow duration-300 w-full h-24 flex items-center justify-center"
-              >
-                <div className="relative h-12 w-32">
-                  <Image 
-                    src={client.logo} 
-                    alt={client.name}
-                    fill
-                    style={{ objectFit: 'contain' }}
-                  />
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
       
       {/* CTA Section */}
       <section className="py-16 md:py-20 bg-gradient-to-r from-green-700 to-green-900 text-white">
