@@ -4,7 +4,6 @@ import Link from 'next/link';
 import Image from 'next/image';
 import Hero from '@/app/components/sections/Hero';
 import ServicesOverview from '@/app/components/sections/ServicesOverview';
-import TestimonialsSection from '@/app/components/sections/TestimonialsSection';
 import ServicesList from '@/app/components/layout/ServicesList';
 import ContactForm from '@/app/components/sections/ContactForm';
 
